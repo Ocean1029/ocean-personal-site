@@ -2,7 +2,7 @@
 import '../styles/global.css';
 import '../styles/page-spacing.css';
 import '../styles/blog.css';
-import { navigationFor, type SiteLanguage } from '../lib/navigation';
+import { isActiveNavigationItem, navigationFor, type SiteLanguage } from '../lib/navigation';
 
 interface Props { title: string; description?: string; lang?: SiteLanguage; }
 const { title, description = 'Ocean 的個人網站', lang = 'zh-TW' } = Astro.props;
@@ -16,7 +16,7 @@ const withBase = (href: string) => href.startsWith('/') ? `${import.meta.env.BAS
   <body>
     <header class="site-header">
       <nav aria-label={lang === 'en' ? 'Primary navigation' : '主要導覽'}>
-        {navigation.primary.map((item, index) => <a class:list={{ 'collection-start': item.group === 'collection' && navigation.primary[index - 1]?.group !== 'collection', 'collection-end': item.group === 'collection' && navigation.primary[index + 1]?.group !== 'collection' }} href={withBase(item.href)}>{item.label}</a>)}
+        {navigation.primary.map((item, index) => <a class:list={{ active: isActiveNavigationItem(Astro.url.pathname, item.href, import.meta.env.BASE_URL), 'collection-start': item.group === 'collection' && navigation.primary[index - 1]?.group !== 'collection', 'collection-end': item.group === 'collection' && navigation.primary[index + 1]?.group !== 'collection' }} aria-current={isActiveNavigationItem(Astro.url.pathname, item.href, import.meta.env.BASE_URL) ? 'page' : undefined} href={withBase(item.href)}>{item.label}</a>)}
       </nav>
       <div class="header-actions">
         <a href={withBase(navigation.contact.href)}>{navigation.contact.label}</a>

@@ -32,3 +32,18 @@ const navigation = {
 export function navigationFor(language: SiteLanguage) {
   return navigation[language];
 }
+
+function normalizePath(path: string) {
+  const trimmed = path.replace(/^\/+|\/+$/g, '');
+  return trimmed ? `/${trimmed}/` : '/';
+}
+
+export function isActiveNavigationItem(currentPathname: string, href: string, basePath = '/') {
+  const currentPath = normalizePath(currentPathname);
+  const base = normalizePath(basePath);
+  const pathWithoutBase = base !== '/' && currentPath.startsWith(base)
+    ? `/${currentPath.slice(base.length)}`
+    : currentPath;
+
+  return normalizePath(pathWithoutBase) === normalizePath(href);
+}

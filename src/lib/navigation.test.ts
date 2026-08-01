@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { navigationFor } from './navigation';
+import { isActiveNavigationItem, navigationFor } from './navigation';
 
 describe('navigationFor', () => {
   it('returns Chinese labels and paths for the Chinese site', () => {
@@ -18,5 +18,12 @@ describe('navigationFor', () => {
       '調酒',
       '觀影',
     ]);
+  });
+});
+
+describe('isActiveNavigationItem', () => {
+  it('activates only the link matching the current page, including a deployed base path', () => {
+    expect(isActiveNavigationItem('/ocean-personal-site/blog/', '/blog/', '/ocean-personal-site/')).toBe(true);
+    expect(isActiveNavigationItem('/ocean-personal-site/blog/', '/', '/ocean-personal-site/')).toBe(false);
   });
 });
