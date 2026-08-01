@@ -1,0 +1,5 @@
+---
+import { getCollection } from 'astro:content'; import BaseLayout from '../../layouts/BaseLayout.astro'; import PageIntro from '../../components/PageIntro.astro'; import { pageIntro } from '../../lib/page-intro'; import { publishedEntries } from '../../lib/published'; import { sortByPublication } from '../../lib/collection';
+const entries=sortByPublication(publishedEntries((await getCollection('projects')).map(({data})=>data)));
+---
+<BaseLayout title="Work | Ocean"><section class="list"><PageIntro {...pageIntro('work')} /><p class="label">Selected projects</p><div class="work-list">{entries.map((entry)=><a class="work-item" href="#"><time>{entry.year}</time><span><h2>{entry.title}</h2><p>{entry.role}</p></span><span>↗</span></a>)}</div><p class="label">Timeline</p><div class="work-list"><div class="work-item"><time>2026 / now</time><span><h2>Ocean</h2><p>Independent designer & maker</p></span></div><div class="work-item"><time>2024 / 2026</time><span><h2>Placeholder Studio</h2><p>Product design</p></span></div></div></section></BaseLayout>

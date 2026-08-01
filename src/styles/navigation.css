@@ -1,0 +1,11 @@
+/* Full-width, editorial navigation inspired by the supplied reference. */
+.site-header{max-width:none;display:grid;grid-template-columns:1fr auto 1fr;padding:2rem clamp(1.25rem,5vw,7rem);gap:clamp(1.5rem,4vw,5rem);border-bottom:1px solid rgba(244,242,238,.12)}
+.site-header nav{grid-column:2;justify-content:center;gap:clamp(.2rem,1.2vw,1.25rem)}
+.site-header nav a,.header-actions a{padding:.35rem .45rem;border-radius:0;color:var(--text);font:400 clamp(.72rem,1.15vw,1rem)/1 "DM Sans";letter-spacing:.08em;text-transform:uppercase}
+.site-header nav a:first-child{background:transparent}
+.site-header nav a.collection-start{margin-left:clamp(.8rem,2vw,1.75rem)}
+.site-header nav a.collection-end{margin-right:clamp(.8rem,2vw,1.75rem)}
+.site-header nav a:hover,.header-actions a:hover{color:var(--warm)}
+.header-actions{grid-column:3;justify-self:end;gap:clamp(.35rem,1vw,1rem)}
+.header-actions .language-switch{color:var(--muted);border-left:1px solid var(--line);padding-left:clamp(.7rem,1.4vw,1.25rem)}
+@media(max-width:800px){.site-header{display:flex;padding:1.2rem 1rem;gap:.85rem}.site-header nav{justify-content:flex-start;order:2;width:100%;padding-bottom:.15rem}.site-header nav a,.header-actions a{font-size:.72rem}.site-header nav a.collection-start{margin-left:.8rem}.site-header nav a.collection-end{margin-right:.8rem}.header-actions{margin-left:auto}}

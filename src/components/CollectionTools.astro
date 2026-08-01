@@ -1,0 +1,11 @@
+---
+interface Props { labels: string[]; }
+const { labels } = Astro.props;
+---
+<div class="collection-tools" data-collection-tools>
+  <label><span class="sr-only">搜尋</span><input type="search" placeholder="搜尋" data-search /></label>
+  <label><span class="sr-only">篩選</span><select data-filter><option value="">全部分類</option>{labels.map((label) => <option value={label}>{label}</option>)}</select></label>
+  <label><span class="sr-only">排序</span><select data-sort><option value="newest">最新發布</option><option value="title">名稱 A–Z</option></select></label>
+</div>
+<p class="empty" data-empty>沒有符合的內容，試試看調整搜尋或篩選條件。</p>
+<style>.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}</style>

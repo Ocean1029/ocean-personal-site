@@ -1,0 +1,5 @@
+---
+import { getCollection } from 'astro:content'; import BaseLayout from '../../layouts/BaseLayout.astro'; import PageIntro from '../../components/PageIntro.astro'; import { pageIntro } from '../../lib/page-intro'; import { publishedEntries } from '../../lib/published'; import { sortByPublication } from '../../lib/collection';
+const entries=sortByPublication(publishedEntries((await getCollection('posts')).map(({data})=>data)));
+---
+<BaseLayout title="Notes | Ocean"><section class="list"><PageIntro {...pageIntro('blog')} /><div class="note-list">{entries.map((entry)=><a class="note-item" href="#"><time>{entry.publishedAt.slice(0,10).replaceAll('-','.')}</time><h2>{entry.title}</h2></a>)}</div></section></BaseLayout>

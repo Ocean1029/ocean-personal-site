@@ -1,0 +1,6 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageIntro from '../components/PageIntro.astro';
+import { pageIntro } from '../lib/page-intro';
+---
+<BaseLayout title="聯絡 | Ocean"><PageIntro {...pageIntro('contact')} /><article class="prose"><p><strong>Email</strong><br /><a href="mailto:hello@example.com">hello@example.com</a></p><p><strong>GitHub</strong><br /><a href="https://github.com/" target="_blank" rel="noopener noreferrer">github.com/your-handle</a></p><p><strong>LinkedIn</strong><br /><a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">linkedin.com/in/your-handle</a></p></article></BaseLayout>

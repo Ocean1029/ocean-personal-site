@@ -1,0 +1,27 @@
+---
+import '../styles/global.css';
+import '../styles/page-spacing.css';
+import { navigationFor, type SiteLanguage } from '../lib/navigation';
+
+interface Props { title: string; description?: string; lang?: SiteLanguage; }
+const { title, description = 'Ocean 的個人網站', lang = 'zh-TW' } = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const navigation = navigationFor(lang);
+---
+<!doctype html>
+<html lang={lang}>
+  <head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width"/><meta name="description" content={description}/><link rel="canonical" href={canonical}/><title>{title}</title></head>
+  <body>
+    <header class="site-header">
+      <nav aria-label={lang === 'en' ? 'Primary navigation' : '主要導覽'}>
+        {navigation.primary.map((item, index) => <a class:list={{ 'collection-start': item.group === 'collection' && navigation.primary[index - 1]?.group !== 'collection', 'collection-end': item.group === 'collection' && navigation.primary[index + 1]?.group !== 'collection' }} href={item.href}>{item.label}</a>)}
+      </nav>
+      <div class="header-actions">
+        <a href={navigation.contact.href}>{navigation.contact.label}</a>
+        <a class="language-switch" href={navigation.language.href} lang={lang === 'en' ? 'zh-TW' : 'en'}>{navigation.language.label}</a>
+      </div>
+    </header>
+    <main><slot/></main>
+    <footer><span>© {new Date().getFullYear()} OCEAN</span><span>personal archive / made with care</span></footer>
+  </body>
+</html>

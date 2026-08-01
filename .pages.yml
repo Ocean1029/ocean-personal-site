@@ -1,0 +1,94 @@
+media:
+  input: public/media
+  output: /media
+content:
+  - name: projects
+    label: 作品
+    type: collection
+    path: src/content/projects
+    filename: '{fields.slug}.md'
+    fields:
+      - { name: title, label: 名稱, type: string }
+      - { name: slug, label: Slug, type: string }
+      - { name: status, label: 狀態, type: select, options: [draft, published] }
+      - { name: publishedAt, label: 發布時間, type: string }
+      - { name: summary, label: 簡介, type: text }
+      - { name: role, label: 角色與貢獻, type: string }
+      - { name: year, label: 年份, type: number }
+      - { name: technologies, label: 技術, type: string, list: true }
+      - { name: tags, label: 標籤, type: string, list: true }
+      - name: links
+        label: 外部連結
+        type: object
+        list: true
+        fields:
+          - { name: label, label: 名稱, type: string }
+          - { name: url, label: HTTPS 網址, type: string }
+      - { name: body, label: 內容, type: rich-text }
+  - name: cocktails
+    label: 調酒
+    type: collection
+    path: src/content/cocktails
+    filename: '{fields.slug}.md'
+    fields:
+      - { name: title, label: 名稱, type: string }
+      - { name: slug, label: Slug, type: string }
+      - { name: status, label: 狀態, type: select, options: [draft, published] }
+      - { name: publishedAt, label: 發布時間, type: string }
+      - { name: style, label: 分類, type: select, options: [classic, improvisation] }
+      - { name: isVariation, label: 經典變體, type: boolean }
+      - { name: baseClassic, label: 基底經典（僅變體）, type: string, required: false }
+      - name: image
+        label: 照片（可選）
+        type: object
+        required: false
+        fields:
+          - { name: src, label: 媒體路徑（僅 /media/ 的 JPG、PNG、WebP 或 AVIF）, type: string }
+          - { name: alt, label: 圖片說明, type: string }
+      - { name: spirit, label: 基酒, type: string }
+      - { name: tags, label: 標籤, type: string, list: true }
+      - name: ingredients
+        label: 材料與比例
+        type: object
+        list: true
+        fields:
+          - { name: ingredient, label: 材料, type: string }
+          - { name: amount, label: 數量（適量可留空）, type: string, required: false }
+          - { name: unit, label: 單位（適量可留空）, type: string, required: false }
+      - { name: method, label: 做法摘要, type: string }
+      - { name: rating, label: 評分, type: number }
+      - { name: tastedOn, label: 品飲日期 (YYYY-MM-DD), type: string }
+      - { name: notes, label: 筆記, type: text }
+      - { name: body, label: 做法, type: rich-text }
+  - name: shows
+    label: 影集
+    type: collection
+    path: src/content/shows
+    filename: '{fields.slug}.md'
+    fields:
+      - { name: title, label: 名稱, type: string }
+      - { name: slug, label: Slug, type: string }
+      - { name: status, label: 狀態, type: select, options: [draft, published] }
+      - { name: publishedAt, label: 發布時間, type: string }
+      - { name: year, label: 年份, type: number }
+      - { name: platform, label: 平台, type: string }
+      - { name: tags, label: 標籤, type: string, list: true }
+      - { name: genres, label: 類型, type: string, list: true }
+      - { name: rating, label: 評分, type: number }
+      - { name: watchStatus, label: 觀看狀態, type: select, options: [want-to-watch, watching, watched] }
+      - { name: review, label: 短評, type: text }
+      - { name: body, label: 詳細心得, type: rich-text }
+  - name: posts
+    label: 部落格
+    type: collection
+    path: src/content/posts
+    filename: '{fields.slug}.md'
+    fields:
+      - { name: title, label: 標題, type: string }
+      - { name: slug, label: Slug, type: string }
+      - { name: status, label: 狀態, type: select, options: [draft, published] }
+      - { name: publishedAt, label: 發布時間, type: string }
+      - { name: summary, label: 摘要, type: text }
+      - { name: tags, label: 標籤, type: string, list: true }
+      - { name: featured, label: 置頂, type: boolean }
+      - { name: body, label: 文章, type: rich-text }

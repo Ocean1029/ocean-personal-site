@@ -1,0 +1,11 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ImagePlaceholder from '../components/ImagePlaceholder.astro';
+---
+<BaseLayout title="Ocean — personal archive" description="Ocean 的作品、筆記與收藏。">
+  <section class="dashboard">
+    <article class="panel intro-card"><div class="availability"><span>● Product designer / maker</span><b>● AVAILABLE FOR WORK</b></div><h1>Hi, I’m<br />Ocean.</h1><p>把工作、好奇心、喝過的酒和看過的故事，放在同一個安靜的地方。</p><a class="button" href="/contact/">⊕ 找我合作</a><a class="button ghost" href="mailto:hello@example.com">▣ 複製 Email</a><ImagePlaceholder label="個人照片" class="avatar" /></article>
+    <aside class="home-side"><section class="panel side-panel"><p class="kicker">Now</p><h2>慢慢建立一個自己的資料庫。</h2><p>目前正在補齊作品、影集評分與調酒筆記。</p></section><section class="panel side-panel"><p class="kicker">Follow me</p><div class="socials"><span>GH</span><span>in</span><span>ig</span><span>↗</span></div></section></aside>
+  </section>
+  <section class="panel home-section"><div class="section-row"><h2>● Projects</h2><a href="/projects/">View all →</a></div><div class="project-stack"><a class="project-row" href="/projects/"><span class="project-dot"></span><span><h3>Personal archive</h3><p>Design system, content architecture</p></span><span class="arrow">›</span></a><a class="project-row" href="/shows/"><span class="project-dot"></span><span><h3>Screen notes</h3><p>收藏、評分與觀看筆記</p></span><span class="arrow">›</span></a><a class="project-row" href="/cocktails/"><span class="project-dot"></span><span><h3>Drink list</h3><p>一點日式心情的調酒清單</p></span><span class="arrow">›</span></a></div></section>
+</BaseLayout>
