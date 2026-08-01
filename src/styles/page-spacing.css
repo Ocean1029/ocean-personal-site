@@ -1,3 +1,5 @@
 /* Keep the page frame generous on larger screens while preserving mobile space. */
 .site-header,main,footer{padding-left:96px;padding-right:96px}
+.work-item time,.note-item time{color:#928e89}
+.label{color:#928e89}
 @media(max-width:800px){.site-header,main,footer{padding-left:1rem;padding-right:1rem}}
