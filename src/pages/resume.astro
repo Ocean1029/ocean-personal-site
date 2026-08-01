@@ -2,5 +2,6 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageIntro from '../components/PageIntro.astro';
 import { pageIntro } from '../lib/page-intro';
+const resumeUrl = `${import.meta.env.BASE_URL}media/ocean-resume-placeholder.pdf`;
 ---
-<BaseLayout title="履歷 | Ocean"><PageIntro {...pageIntro('resume')} /><article class="prose"><h2>目前關注</h2><p>在這裡放入職稱、經歷摘要、技能與教育背景。</p><a class="button" href="/media/ocean-resume-placeholder.pdf" download>下載 PDF 履歷</a></article></BaseLayout>
+<BaseLayout title="履歷 | Ocean"><PageIntro {...pageIntro('resume')} /><article class="prose"><h2>目前關注</h2><p>在這裡放入職稱、經歷摘要、技能與教育背景。</p><a class="button" href={resumeUrl} download>下載 PDF 履歷</a></article></BaseLayout>

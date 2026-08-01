@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ImagePlaceholder from '../../components/ImagePlaceholder.astro';
+const contactUrl = `${import.meta.env.BASE_URL}en/contact/`;
 ---
-<BaseLayout title="Ocean — Personal site" description="Ocean's work, notes, and collections." lang="en"><section class="hero"><div><p class="eyebrow">Personal archive · work in progress</p><h1>Ocean<br />makes<br />notes.</h1><p>A personal space for work, television, cocktails, and sustained curiosity.</p><a class="button" href="/en/contact/">Get in touch</a></div><ImagePlaceholder label="Ocean photo" lang="en" class="portrait" /></section></BaseLayout>
+<BaseLayout title="Ocean — Personal site" description="Ocean's work, notes, and collections." lang="en"><section class="hero"><div><p class="eyebrow">Personal archive · work in progress</p><h1>Ocean<br />makes<br />notes.</h1><p>A personal space for work, television, cocktails, and sustained curiosity.</p><a class="button" href={contactUrl}>Get in touch</a></div><ImagePlaceholder label="Ocean photo" lang="en" class="portrait" /></section></BaseLayout>
